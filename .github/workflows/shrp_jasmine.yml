@@ -44,8 +44,8 @@ jobs:
             cd
             mkdir SHRP
             cd SHRP
-            repo init -u git://github.com/SHRP/platform_manifest_twrp_omni.git -b shrp-12.1 --depth=1
-            repo sync -j8 --force-sync --optimized-fetch --no-clone-bundle
+            repo init -u https://github.com/SHRP/manifest.git -b hrp-12.1
+            repo sync -j1 --force-sync --optimized-fetch --no-clone-bundle
             cd
             cd SHRP
             git clone https://github.com/albatron34000/shrp_device_RMX2151 device/realme/RMX2151
