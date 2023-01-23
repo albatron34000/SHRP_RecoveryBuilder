@@ -18,8 +18,8 @@ jobs:
         run: |
             sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
             docker rmi `docker images -q`
-            git config --global user.name "Samyak"
-            git config --global user.email "jainsamyak2002.sj@gmail.com"         
+            git config --global user.name "albatron34000"
+            git config --global user.email "albatron342016@gmail.com"         
             sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* 
             sudo -E apt-get clean 
             sudo -E apt-get -qq update
@@ -44,11 +44,11 @@ jobs:
             cd
             mkdir SHRP
             cd SHRP
-            repo init -u git://github.com/SHRP/platform_manifest_twrp_omni.git -b v3_9.0 --depth=1
+            repo init -u git://github.com/SHRP/platform_manifest_twrp_omni.git -b shrp-12.1 --depth=1
             repo sync -j8 --force-sync --optimized-fetch --no-clone-bundle
             cd
             cd SHRP
-            git clone https://github.com/Rahuh-960/android_device_xiaomi_jasmine_sprout-twrp.git device/xiaomi/jasmine_sprout
+            git clone https://github.com/albatron34000/shrp_device_RMX2151 device/realme/RMX2151
             
       - name: Now Lets build Ofox
         run: |
@@ -56,15 +56,15 @@ jobs:
             cd SHRP
             source build/envsetup.sh
             export ALLOW_MISSING_DEPENDENCIES=true
-            lunch omni_jasmine_sprout-eng
+            lunch omni_RMX2151t-eng
             mka recoveryimage
       
       - name: Uploading using Bash Upload
         run: |
             cd
-            mv SHRP/out/target/product/jasmine_sprout/OrangeFox-Unofficial-wayne.img ~
-            mv SHRP/out/target/product/jasmine_sprout/OrangeFox-Unofficial-wayne.zip ~
-            curl https://bashupload.com/Ofox-Unofficial.zip --data-binary @OrangeFox-Unofficial-wayne.zip
-            curl https://bashupload.com/Ofox-Unofficial.img --data-binary @OrangeFox-Unofficial-wayne.img
+            mv SHRP/out/target/product/RMX2151/OrangeFox-Unofficial-wayne.img ~
+            mv SHRP/out/target/product/RMX2151/OrangeFox-Unofficial-wayne.zip ~
+            curl https://bashupload.com/Ofox-Unofficial.zip --data-binary @OrangeFox-RMX2151.zip
+            curl https://bashupload.com/Ofox-Unofficial.img --data-binary @OrangeFox-RMX2151.img
             
             
